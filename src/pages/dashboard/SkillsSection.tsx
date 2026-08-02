@@ -83,7 +83,7 @@ export default function SkillsSection() {
           {loading ? (
             <div className="card p-10 grid place-items-center"><Loader2 className="animate-spin" style={{ color: 'rgb(var(--primary))' }} /></div>
           ) : skills.length === 0 ? (
-            <div className="card p-10 text-center animate-fade-in">
+            <div className="card p-12 text-center animate-fade-in">
               <Code2 size={28} className="mx-auto mb-3" style={{ color: 'rgb(var(--text-faint))' }} />
               <p className="text-sm" style={{ color: 'rgb(var(--text-soft))' }}>No skills yet. Add your first one.</p>
             </div>

@@ -28,12 +28,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             className="glass card animate-scale-in flex items-start gap-3 p-3.5 shadow-xl"
           >
             {t.type === 'success' ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: 'rgb(16 185 129)' }} />
             ) : (
-              <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: 'rgb(239 68 68)' }} />
             )}
             <p className="text-sm flex-1" style={{ color: 'rgb(var(--text))' }}>{t.message}</p>
-            <button onClick={() => remove(t.id)} className="text-[rgb(var(--text-faint))] hover:text-[rgb(var(--text))]">
+            <button onClick={() => remove(t.id)} className="transition-colors" style={{ color: 'rgb(var(--text-faint))' }}>
               <X className="w-4 h-4" />
             </button>
           </div>

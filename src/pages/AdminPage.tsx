@@ -76,7 +76,7 @@ export default function AdminPage() {
 
       <main className="max-w-6xl mx-auto px-5 py-8">
         <div className="mb-8 animate-fade-up">
-          <h1 className="text-3xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Admin Panel</h1>
+          <h1 className="font-display text-3xl font-semibold">Admin Panel</h1>
           <p className="text-sm mt-1" style={{ color: 'rgb(var(--text-soft))' }}>Signed in as {user?.email}</p>
         </div>
 
@@ -88,9 +88,9 @@ export default function AdminPage() {
             { label: 'Skills', value: totalSkills, icon: Code2, color: '#a855f7' },
             { label: 'Blog posts', value: totalPosts, icon: FileText, color: '#f59e0b' },
           ].map((c, i) => (
-            <div key={c.label} className={`card p-5 animate-fade-up delay-${i + 1}`}>
+            <div key={c.label} className={`card card-hover p-6 animate-fade-up delay-${i + 1}`}>
               <div className="w-10 h-10 rounded-xl grid place-items-center text-white shadow mb-3" style={{ background: c.color }}><c.icon size={18} /></div>
-              <div className="text-3xl font-bold">{loading ? '—' : c.value}</div>
+              <div className="text-3xl font-bold font-display">{loading ? '—' : c.value}</div>
               <div className="text-xs mt-0.5" style={{ color: 'rgb(var(--text-soft))' }}>{c.label}</div>
             </div>
           ))}

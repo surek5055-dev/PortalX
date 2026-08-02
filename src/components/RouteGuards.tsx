@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { ReactNode } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import { Loader2 } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 export function ProtectedRoute({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
@@ -21,7 +21,10 @@ export function AdminRoute({ children }: { children: ReactNode }) {
 export function FullLoader() {
   return (
     <div className="min-h-screen grid place-items-center mesh-bg">
-      <Loader2 className="w-8 h-8 animate-spin" style={{ color: 'rgb(var(--primary))' }} />
+      <div className="flex flex-col items-center gap-5">
+        <div className="animate-pulse"><Logo size="lg" /></div>
+        <div className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: 'rgb(var(--primary))', borderTopColor: 'transparent' }} />
+      </div>
     </div>
   );
 }

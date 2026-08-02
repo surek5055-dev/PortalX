@@ -45,19 +45,18 @@ export default function DashboardLayout() {
           <button className="lg:hidden" onClick={() => setOpen(false)}><X size={20} /></button>
         </div>
         <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-          <p className="px-3 pt-2 pb-1 text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgb(var(--text-faint))' }}>Portfolio</p>
+          <p className="px-3 pt-2 pb-1.5 text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgb(var(--text-faint))' }}>Portfolio</p>
           {nav.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               end={n.end}
               onClick={() => setOpen(false)}
-              className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${isActive ? 'active' : ''}`}
-              style={undefined}
+              className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${isActive ? 'active' : ''}`}
             >
               {({ isActive }) => (
                 <>
-                  <n.icon size={18} className={isActive ? '' : 'opacity-70'} style={isActive ? { color: 'rgb(var(--primary))' } : undefined} />
+                  <n.icon size={18} className={isActive ? '' : 'opacity-60'} style={isActive ? { color: 'rgb(var(--primary))' } : undefined} />
                   <span style={isActive ? { color: 'rgb(var(--primary))' } : { color: 'rgb(var(--text-soft))' }}>{n.label}</span>
                 </>
               )}
@@ -65,17 +64,21 @@ export default function DashboardLayout() {
           ))}
           {role === 'admin' && (
             <>
-              <p className="px-3 pt-4 pb-1 text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgb(var(--text-faint))' }}>Admin</p>
-              <NavLink to="/admin" className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium ${isActive ? 'active' : ''}`}>
-                <Shield size={18} />
-                <span>Admin Panel</span>
+              <p className="px-3 pt-4 pb-1.5 text-[10px] font-bold uppercase tracking-wider" style={{ color: 'rgb(var(--text-faint))' }}>Admin</p>
+              <NavLink to="/admin" className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${isActive ? 'active' : ''}`}>
+                {({ isActive }) => (
+                  <>
+                    <Shield size={18} className={isActive ? '' : 'opacity-60'} style={isActive ? { color: 'rgb(var(--primary))' } : undefined} />
+                    <span style={isActive ? { color: 'rgb(var(--primary))' } : { color: 'rgb(var(--text-soft))' }}>Admin Panel</span>
+                  </>
+                )}
               </NavLink>
             </>
           )}
         </nav>
-        <div className="p-3 border-t" style={{ borderColor: 'rgb(var(--border))' }}>
-          <Link to="/p" target="_blank" className="btn btn-ghost w-full text-sm mb-2">
-            <Eye size={16} /> View public portfolio <ExternalLink size={13} className="opacity-60" />
+        <div className="p-3 border-t space-y-2" style={{ borderColor: 'rgb(var(--border))' }}>
+          <Link to="/p" target="_blank" className="btn btn-ghost w-full text-sm">
+            <Eye size={16} /> View public portfolio <ExternalLink size={13} className="opacity-50" />
           </Link>
           <button onClick={handleSignOut} className="btn btn-ghost w-full text-sm" style={{ color: 'rgb(239 68 68)' }}>
             <LogOut size={16} /> Sign out
@@ -83,11 +86,11 @@ export default function DashboardLayout() {
         </div>
       </aside>
 
-      {open && <div className="fixed inset-0 bg-black/40 z-40 lg:hidden" onClick={() => setOpen(false)} />}
+      {open && <div className="fixed inset-0 bg-black/40 z-40 lg:hidden backdrop-blur-sm" onClick={() => setOpen(false)} />}
 
       {/* Main */}
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="sticky top-0 z-30 glass border-b">
+        <header className="sticky top-0 z-30 glass border-b" style={{ borderColor: 'rgb(var(--border) / .5)' }}>
           <div className="h-16 px-5 flex items-center justify-between">
             <button className="lg:hidden" onClick={() => setOpen(true)}><Menu size={22} /></button>
             <div className="flex items-center gap-3 ml-auto">
@@ -120,10 +123,10 @@ export default function DashboardLayout() {
 
 export function SectionHeader({ title, desc, action }: { title: string; desc: string; action?: ReactNode }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 animate-fade-up">
+    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-7 animate-fade-up">
       <div>
-        <h1 className="text-2xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{title}</h1>
-        <p className="text-sm mt-1" style={{ color: 'rgb(var(--text-soft))' }}>{desc}</p>
+        <h1 className="font-display text-3xl font-semibold tracking-tight">{title}</h1>
+        <p className="text-sm mt-1.5" style={{ color: 'rgb(var(--text-soft))' }}>{desc}</p>
       </div>
       {action}
     </div>

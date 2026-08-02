@@ -32,15 +32,27 @@ export default function SignupPage() {
       footer={<>Already have an account? <Link to="/login" className="font-semibold" style={{ color: 'rgb(var(--primary))' }}>Sign in</Link></>}
     >
       <form onSubmit={submit} className="space-y-4">
-        <Field icon={<User size={16} />}>
-          <input className="input pl-10" placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} required />
-        </Field>
-        <Field icon={<Mail size={16} />}>
-          <input type="email" className="input pl-10" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </Field>
-        <Field icon={<Lock size={16} />}>
-          <input type="password" className="input pl-10" placeholder="Password (min 6 chars)" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </Field>
+        <div>
+          <label className="label">Full name</label>
+          <div className="relative">
+            <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input className="input pl-10" placeholder="Jane Designer" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+        </div>
+        <div>
+          <label className="label">Email</label>
+          <div className="relative">
+            <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="email" className="input pl-10" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+        </div>
+        <div>
+          <label className="label">Password</label>
+          <div className="relative">
+            <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="password" className="input pl-10" placeholder="Min 6 characters" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+        </div>
         <button type="submit" disabled={busy} className="btn btn-primary w-full !py-3 disabled:opacity-60">
           {busy ? <Loader2 size={18} className="animate-spin" /> : <>Create account <ArrowRight size={16} /></>}
         </button>
@@ -49,14 +61,5 @@ export default function SignupPage() {
         </p>
       </form>
     </AuthLayout>
-  );
-}
-
-function Field({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
-  return (
-    <div className="relative">
-      <span className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }}>{icon}</span>
-      {children}
-    </div>
   );
 }

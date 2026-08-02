@@ -85,7 +85,7 @@ export default function PublicPortfolioPage() {
       {/* Nav */}
       <header className="sticky top-0 z-40 glass border-b">
         <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-          <span className="font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{profile?.full_name || 'Your name'}</span>
+          <span className="font-bold tracking-tight">{profile?.full_name || 'Your name'}</span>
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((n) => (
               <a key={n.id} href={`#${n.id}`} className="nav-link">{n.label}</a>
@@ -104,7 +104,7 @@ export default function PublicPortfolioPage() {
           <div className="w-28 h-28 rounded-3xl mx-auto mb-6 overflow-hidden shadow-xl animate-scale-in" style={{ background: 'linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))' }}>
             {profile?.avatar_url ? <img src={profile.avatar_url} alt={profile.full_name} className="w-full h-full object-cover" /> : <div className="w-full h-full grid place-items-center text-4xl font-bold text-white">{(profile?.full_name || '?').charAt(0)}</div>}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight animate-fade-up" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tight animate-fade-up">
             Hi, I'm <span className="gradient-text">{profile?.full_name || 'Your name'}</span>
           </h1>
           <p className="mt-5 text-lg max-w-2xl mx-auto animate-fade-up delay-1" style={{ color: 'rgb(var(--text-soft))' }}>
@@ -194,7 +194,7 @@ export default function PublicPortfolioPage() {
       <section id="contact" className="max-w-5xl mx-auto px-5 py-20">
         <div className="card glass p-10 md:p-14 text-center relative overflow-hidden">
           <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-20" style={{ background: 'rgb(var(--primary))' }} />
-          <h2 className="text-3xl font-bold relative">Let's work together</h2>
+          <h2 className="font-display text-3xl font-semibold relative">Let's work together</h2>
           <p className="mt-3 relative" style={{ color: 'rgb(var(--text-soft))' }}>Have a project in mind? I'd love to hear about it.</p>
           <div className="mt-7 flex flex-wrap gap-3 justify-center relative">
             {profile?.contact_email && <a href={`mailto:${profile.contact_email}`} className="btn btn-primary"><Mail size={16} /> {profile.contact_email}</a>}
@@ -218,7 +218,7 @@ export default function PublicPortfolioPage() {
 
 function ProjectCard({ p, delay = 0, large = false }: { p: Project; delay?: number; large?: boolean }) {
   return (
-    <div className={`card overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all animate-fade-up delay-${Math.min(delay + 1, 5)} ${large ? '' : ''}`}>
+    <div className={`card card-hover overflow-hidden animate-fade-up delay-${Math.min(delay + 1, 5)}`}>
       <div className={large ? 'aspect-video' : 'aspect-video'} style={{ background: 'rgb(var(--bg-soft))' }}>
         {p.image_url ? <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" /> : <div className="w-full h-full grid place-items-center text-[rgb(var(--text-faint))]"><ArrowUpRight size={28} /></div>}
       </div>

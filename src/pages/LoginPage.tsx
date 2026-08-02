@@ -30,13 +30,19 @@ export default function LoginPage() {
       footer={<>New here? <Link to="/signup" className="font-semibold" style={{ color: 'rgb(var(--primary))' }}>Create an account</Link></>}
     >
       <form onSubmit={submit} className="space-y-4">
-        <div className="relative">
-          <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
-          <input type="email" className="input pl-10" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div>
+          <label className="label">Email</label>
+          <div className="relative">
+            <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="email" className="input pl-10" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
         </div>
-        <div className="relative">
-          <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
-          <input type="password" className="input pl-10" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div>
+          <label className="label">Password</label>
+          <div className="relative">
+            <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="password" className="input pl-10" placeholder="Your password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
         </div>
         <button type="submit" disabled={busy} className="btn btn-primary w-full !py-3 disabled:opacity-60">
           {busy ? <Loader2 size={18} className="animate-spin" /> : <>Sign in <ArrowRight size={16} /></>}

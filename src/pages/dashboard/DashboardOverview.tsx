@@ -32,10 +32,10 @@ export default function DashboardOverview() {
   }, [user]);
 
   const cards = [
-    { label: 'Projects', value: counts.projects, icon: FolderGit2, to: '/dashboard/projects', color: 'rgb(var(--primary))' },
-    { label: 'Skills', value: counts.skills, icon: Code2, to: '/dashboard/skills', color: 'rgb(var(--accent))' },
-    { label: 'Blog posts', value: counts.posts, icon: PenLine, to: '/dashboard/blog', color: '#a855f7' },
-    { label: 'Published', value: counts.published, icon: CheckCircle2, to: '/dashboard/blog', color: '#f59e0b' },
+    { label: 'Projects', value: counts.projects, icon: FolderGit2, to: '/dashboard/projects', color: 'rgb(37 99 235)' },
+    { label: 'Skills', value: counts.skills, icon: Code2, to: '/dashboard/skills', color: 'rgb(6 182 212)' },
+    { label: 'Blog posts', value: counts.posts, icon: PenLine, to: '/dashboard/blog', color: 'rgb(99 102 241)' },
+    { label: 'Published', value: counts.published, icon: CheckCircle2, to: '/dashboard/blog', color: 'rgb(16 185 129)' },
   ];
 
   const checklist = [
@@ -52,41 +52,43 @@ export default function DashboardOverview() {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {cards.map((c, i) => (
-          <Link key={c.label} to={c.to} className={`card p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all animate-fade-up delay-${i + 1}`}>
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-10 h-10 rounded-xl grid place-items-center text-white shadow" style={{ background: c.color }}>
-                <c.icon size={18} />
+          <Link key={c.label} to={c.to} className={`card card-hover p-6 animate-fade-up delay-${i + 1}`}>
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-11 h-11 rounded-xl grid place-items-center" style={{ background: `${c.color}15` }}>
+                <c.icon size={20} style={{ color: c.color }} />
               </div>
               <ArrowUpRight size={16} style={{ color: 'rgb(var(--text-faint))' }} />
             </div>
-            <div className="text-3xl font-bold">{loading ? '—' : c.value}</div>
-            <div className="text-xs mt-0.5" style={{ color: 'rgb(var(--text-soft))' }}>{c.label}</div>
+            <div className="text-3xl font-bold font-display">{loading ? '—' : c.value}</div>
+            <div className="text-xs mt-1" style={{ color: 'rgb(var(--text-soft))' }}>{c.label}</div>
           </Link>
         ))}
       </div>
 
       <div className="grid lg:grid-cols-3 gap-5">
-        <div className="card p-6 lg:col-span-2 animate-fade-up delay-3">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="card p-7 lg:col-span-2 animate-fade-up delay-3">
+          <div className="flex items-center gap-2 mb-5">
             <TrendingUp size={18} style={{ color: 'rgb(var(--primary))' }} />
             <h3 className="font-semibold">Getting started</h3>
           </div>
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {checklist.map((c) => (
-              <Link key={c.label} to={c.to} className="flex items-center gap-3 p-3 rounded-xl hover:bg-[rgb(var(--bg-soft))] transition-colors">
+              <Link key={c.label} to={c.to} className="flex items-center gap-3 p-3.5 rounded-xl transition-colors hover:bg-[rgb(var(--bg-soft))]">
                 <CheckCircle2 size={18} className={c.done ? 'text-emerald-500' : ''} style={c.done ? undefined : { color: 'rgb(var(--text-faint))' }} />
                 <span className="text-sm flex-1" style={{ color: c.done ? 'rgb(var(--text-soft))' : 'rgb(var(--text))', textDecoration: c.done ? 'line-through' : 'none' }}>{c.label}</span>
-                {!c.done && <span className="text-xs font-medium" style={{ color: 'rgb(var(--primary))' }}>Add</span>}
+                {!c.done && <span className="text-xs font-semibold" style={{ color: 'rgb(var(--primary))' }}>Add</span>}
               </Link>
             ))}
           </div>
         </div>
-        <div className="card p-6 animate-fade-up delay-4 relative overflow-hidden">
-          <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full blur-2xl opacity-20" style={{ background: 'rgb(var(--primary))' }} />
-          <Sparkles size={22} style={{ color: 'rgb(var(--primary))' }} className="mb-3" />
-          <h3 className="font-semibold mb-1">Publish your portfolio</h3>
-          <p className="text-sm mb-4" style={{ color: 'rgb(var(--text-soft))' }}>Your portfolio is live and shareable anytime.</p>
-          <Link to="/p" target="_blank" className="btn btn-primary w-full text-sm"><Eye size={16} /> View public page</Link>
+        <div className="card p-7 animate-fade-up delay-4 relative overflow-hidden">
+          <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full blur-3xl opacity-15" style={{ background: 'rgb(var(--primary))' }} />
+          <div className="relative">
+            <Sparkles size={24} style={{ color: 'rgb(var(--primary))' }} className="mb-4" />
+            <h3 className="font-semibold mb-1.5">Publish your portfolio</h3>
+            <p className="text-sm mb-5" style={{ color: 'rgb(var(--text-soft))' }}>Your portfolio is live and shareable anytime.</p>
+            <Link to="/p" target="_blank" className="btn btn-primary w-full text-sm"><Eye size={16} /> View public page</Link>
+          </div>
         </div>
       </div>
     </div>

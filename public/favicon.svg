@@ -1,17 +1,22 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pxg" x1="24" y1="12" x2="168" y2="180" gradientUnits="userSpaceOnUse">
       <stop stop-color="#3B82F6"/>
       <stop offset="1" stop-color="#22D3EE"/>
     </linearGradient>
-    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+    <linearGradient id="pxbg" x1="0" y1="0" x2="192" y2="192" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0F172A"/>
       <stop offset="1" stop-color="#020617"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
-  <path d="M16 5.5L26 11.25V20.75L16 26.5L6 20.75V11.25L16 5.5Z" fill="none" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/>
-  <path d="M13 13L10.5 16L13 19" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M19 13L21.5 16L19 19" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M17.6 12L14.4 20" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <rect width="192" height="192" rx="42" fill="url(#pxbg)"/>
+  <!-- P: vertical stem -->
+  <path d="M52 48H96C112 48 124 58 124 78C124 98 112 108 96 108H72V144H52V48Z" fill="url(#pxg)"/>
+  <!-- P: open counter (book page shape) -->
+  <path d="M72 64V92H94C102 92 104 86 104 78C104 70 102 64 94 64H72Z" fill="url(#pxbg)"/>
+  <!-- X: two diagonal strokes -->
+  <path d="M108 116L132 144H112L100 130L108 116Z" fill="url(#pxg)"/>
+  <path d="M148 116L124 144H144L156 130L148 116Z" fill="url(#pxg)"/>
+  <path d="M108 116L132 88H112L100 102L108 116Z" fill="url(#pxg)"/>
+  <path d="M148 116L124 88H144L156 102L148 116Z" fill="url(#pxg)"/>
 </svg>

@@ -14,7 +14,6 @@ export default function AdminLoginPage() {
   const [busy, setBusy] = useState(false);
   const pendingRef = useRef(false);
 
-  // Once role resolves after a sign-in attempt, route accordingly.
   useEffect(() => {
     if (!pendingRef.current || loading) return;
     pendingRef.current = false;
@@ -33,7 +32,7 @@ export default function AdminLoginPage() {
     const { error } = await signIn(email.trim(), password);
     setBusy(false);
     if (error) return push(error, 'error');
-    pendingRef.current = true; // wait for role to resolve via effect
+    pendingRef.current = true;
   };
 
   return (
@@ -42,18 +41,24 @@ export default function AdminLoginPage() {
       subtitle="Restricted area. Administrators only."
       footer={<>Not an admin? <Link to="/login" className="font-semibold" style={{ color: 'rgb(var(--primary))' }}>User login</Link></>}
     >
-      <div className="mb-5 flex items-center gap-2.5 p-3 rounded-xl" style={{ background: 'rgb(var(--primary) / .1)', color: 'rgb(var(--primary))' }}>
+      <div className="mb-5 flex items-center gap-2.5 p-3.5 rounded-xl" style={{ background: 'rgb(var(--primary) / .08)', color: 'rgb(var(--primary))', border: '1px solid rgb(var(--primary) / .2)' }}>
         <Shield size={18} />
         <span className="text-xs font-medium">The first account created becomes the admin automatically.</span>
       </div>
       <form onSubmit={submit} className="space-y-4">
-        <div className="relative">
-          <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
-          <input type="email" className="input pl-10" placeholder="Admin email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div>
+          <label className="label">Admin email</label>
+          <div className="relative">
+            <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="email" className="input pl-10" placeholder="admin@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
         </div>
-        <div className="relative">
-          <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
-          <input type="password" className="input pl-10" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div>
+          <label className="label">Password</label>
+          <div className="relative">
+            <Lock size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: 'rgb(var(--text-faint))' }} />
+            <input type="password" className="input pl-10" placeholder="Your password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
         </div>
         <button type="submit" disabled={busy} className="btn btn-primary w-full !py-3 disabled:opacity-60">
           {busy ? <Loader2 size={18} className="animate-spin" /> : <>Sign in as admin <ArrowRight size={16} /></>}

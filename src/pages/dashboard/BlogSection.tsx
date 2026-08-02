@@ -97,7 +97,7 @@ export default function BlogSection() {
       ) : (
         <div className="space-y-3">
           {posts.map((p, i) => (
-            <div key={p.id} className={`card p-4 flex items-center gap-4 animate-fade-up delay-${Math.min(i + 1, 5)}`}>
+            <div key={p.id} className={`card card-hover p-4 flex items-center gap-4 animate-fade-up delay-${Math.min(i + 1, 5)}`}>
               <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0" style={{ background: 'rgb(var(--bg-soft))' }}>
                 {p.image_url ? <img src={p.image_url} alt="" className="w-full h-full object-cover" /> : <div className="w-full h-full grid place-items-center text-[rgb(var(--text-faint))]"><PenLine size={20} /></div>}
               </div>

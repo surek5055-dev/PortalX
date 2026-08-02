@@ -87,7 +87,7 @@ export default function ProjectsSection() {
       ) : (
         <div className="grid sm:grid-cols-2 gap-5">
           {projects.map((p, i) => (
-            <div key={p.id} className={`card overflow-hidden hover:shadow-lg transition-all animate-fade-up delay-${Math.min(i + 1, 5)}`}>
+            <div key={p.id} className={`card card-hover overflow-hidden animate-fade-up delay-${Math.min(i + 1, 5)}`}>
               <div className="aspect-video relative" style={{ background: 'rgb(var(--bg-soft))' }}>
                 {p.image_url ? <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" /> : <div className="absolute inset-0 grid place-items-center text-[rgb(var(--text-faint))]"><FolderGit2 size={28} /></div>}
                 {p.featured && <span className="absolute top-3 left-3 chip !bg-amber-400/90 !text-white !border-0"><Star size={12} /> Featured</span>}
