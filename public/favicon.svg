@@ -14,11 +14,11 @@
   <path d="M56 44H100C122 44 136 58 136 82C136 106 122 120 100 120H80V148H56V44Z" fill="url(#pxg)"/>
   <!-- P: open portfolio page inside counter -->
   <path d="M80 64V100H96C108 100 112 92 112 82C112 72 108 64 96 64H80Z" fill="url(#pxbg)"/>
-  <!-- Page line inside P counter (subtle portfolio page) -->
+  <!-- Page line inside P counter (subtle portfolio page detail) -->
   <path d="M84 72V96H96C104 96 106 90 106 84C106 78 104 72 96 72H84Z" stroke="url(#pxg)" stroke-width="3" fill="none" opacity="0.4"/>
-  <!-- X: bold diagonal strokes -->
-  <path d="M104 124L128 148H108L100 138L104 124Z" fill="url(#pxg)"/>
-  <path d="M152 124L128 148H148L156 138L152 124Z" fill="url(#pxg)"/>
-  <path d="M104 124L128 100H108L100 110L104 124Z" fill="url(#pxg)"/>
-  <path d="M152 124L128 100H148L156 110L152 124Z" fill="url(#pxg)"/>
+  <!-- X: two clean bold diagonal strokes -->
+  <path d="M104 124L120 148L132 148L116 124Z" fill="url(#pxg)"/>
+  <path d="M152 124L136 148L124 148L140 124Z" fill="url(#pxg)"/>
+  <path d="M104 124L120 100L132 100L116 124Z" fill="url(#pxg)"/>
+  <path d="M152 124L136 100L124 100L140 124Z" fill="url(#pxg)"/>
 </svg>

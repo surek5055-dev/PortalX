@@ -14,16 +14,16 @@ export default function Logo({ to = '/', size = 'md' }: { to?: string; size?: 's
             </linearGradient>
           </defs>
           {/* P: bold stem + bowl */}
-          <path d="M14 11H25C30.5 11 34 15 34 21C34 27 30.5 31 25 31H20V38H14V11Z" fill="url(#logo-px)" />
+          <path d="M11 11H25C30.5 11 34 15 34 21C34 27 30.5 31 25 31H20V38H11V11Z" fill="url(#logo-px)" />
           {/* P: open portfolio page inside counter */}
           <path d="M20 16V26H24C26.5 26 28 24.5 28 21C28 18.5 26.5 16 24 16H20Z" fill="#0F172A" />
           {/* Page line inside P (subtle portfolio page detail) */}
           <path d="M21 18V24H24C25.5 24 26.5 22.5 26.5 21C26.5 19.5 25.5 18 24 18H21Z" stroke="url(#logo-px)" stroke-width="1.2" fill="none" opacity="0.5" />
-          {/* X: bold diagonal strokes */}
-          <path d="M26 33L32 39H28L26 36L26 33Z" fill="url(#logo-px)" />
-          <path d="M38 33L32 39H36L38 36L38 33Z" fill="url(#logo-px)" />
-          <path d="M26 33L32 27H28L26 30L26 33Z" fill="url(#logo-px)" />
-          <path d="M38 33L32 27H36L38 30L38 33Z" fill="url(#logo-px)" />
+          {/* X: two clean bold diagonal strokes */}
+          <path d="M26 33L30 39L34 39L30 33Z" fill="url(#logo-px)" />
+          <path d="M38 33L34 39L30 39L34 33Z" fill="url(#logo-px)" />
+          <path d="M26 33L30 27L34 27L30 33Z" fill="url(#logo-px)" />
+          <path d="M38 33L34 27L30 27L34 33Z" fill="url(#logo-px)" />
         </svg>
       </div>
       <span className={`${text} font-bold tracking-tight`} style={{ fontFamily: "'Inter', sans-serif" }}>
