@@ -21,7 +21,7 @@ export function AdminRoute({ children }: { children: ReactNode }) {
 export function FullLoader() {
   return (
     <div className="min-h-screen grid place-items-center mesh-bg">
-      <div className="flex flex-col items-center gap-5">
+      <div className="flex flex-col items-center gap-6">
         <div className="animate-pulse"><Logo size="lg" /></div>
         <div className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: 'rgb(var(--primary))', borderTopColor: 'transparent' }} />
       </div>

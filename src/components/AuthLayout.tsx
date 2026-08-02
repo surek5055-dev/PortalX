@@ -13,7 +13,7 @@ export default function AuthLayout({ children, title, subtitle, footer }: { chil
         <div className="relative"><Logo size="lg" /></div>
         <div className="space-y-7 max-w-md relative">
           <div className="inline-flex items-center gap-2 chip" style={{ background: 'rgb(var(--primary) / .1)', borderColor: 'rgb(var(--primary) / .2)' }}>
-            <Sparkles size={14} style={{ color: 'rgb(var(--primary))' }} /> Build a portfolio that stands out
+            <Sparkles size={14} style={{ color: 'rgb(var(--primary))' }} /> Professional Portfolio Builder
           </div>
           <h1 className="font-display text-4xl font-semibold leading-[1.15]">
             Your work deserves a <span className="gradient-text">stunning</span> home.
@@ -21,18 +21,6 @@ export default function AuthLayout({ children, title, subtitle, footer }: { chil
           <p className="text-base leading-relaxed" style={{ color: 'rgb(var(--text-soft))' }}>
             Create, edit, and publish a modern portfolio in minutes — projects, skills, blog, and resume — all in one place. No code required.
           </p>
-          <div className="flex gap-8 pt-2">
-            {[
-              { k: '10k+', v: 'Portfolios' },
-              { k: '4.9★', v: 'Avg. rating' },
-              { k: '100%', v: 'Customizable' },
-            ].map((s) => (
-              <div key={s.v}>
-                <div className="text-2xl font-bold gradient-text font-display">{s.k}</div>
-                <div className="text-xs mt-0.5" style={{ color: 'rgb(var(--text-faint))' }}>{s.v}</div>
-              </div>
-            ))}
-          </div>
         </div>
         <p className="text-xs relative" style={{ color: 'rgb(var(--text-faint))' }}>© {new Date().getFullYear()} PortalX. Crafted for creators.</p>
       </div>
